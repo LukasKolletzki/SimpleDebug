@@ -35,7 +35,7 @@ echo $simpledebug->getEvents(true);
 ```
 This will print a table like this:
 ```
-\#1 Test:         Testing it!
-\#1 Another Test: This is the second event.
-\#1 Test no. 3:   And another event.
+#1 Test:         Testing it!
+#1 Another Test: This is the second event.
+#1 Test no. 3:   And another event.
 ```
