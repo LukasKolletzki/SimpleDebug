@@ -10,10 +10,20 @@ class simpleDebug{
     private $events = array();
     private $output;
     
+    /**
+     * Adds an debug event
+     * @param string $identifier
+     * @param string $text
+     */
     public function addEvent($identifier, $text) {
         $this->events[$identifier] = $text;
     }
     
+    /**
+     * Delivers all events
+     * @param bool $format
+     * @return string if events should be formated, else array
+     */
     public function getEvents($format = false){
         if($format){
             $this->formatEvents();
@@ -23,7 +33,10 @@ class simpleDebug{
         }
     }
 
-
+    /**
+     * Format all events in a table
+     * @param array $events
+     */
     public function formatEvents($events = NULL){
         if(empty($events)){
             $events = $this->events;
