@@ -68,7 +68,7 @@ $simpledebug->addSection();
 //print some of the testdata
 foreach ($testdata as $key => $val) {
     if($val % 10 == 0) {
-        echo $key . " => " . $$val . "\n";
+        echo $key . " => " . $val . "\n";
     }
 }
 
@@ -76,7 +76,7 @@ foreach ($testdata as $key => $val) {
 $simpledebug->endTime();
 
 //get all data of measurement and display them
-var_dump($simpledebug->getTimes();
+var_dump($simpledebug->getTimes());
 ?>
 ```
 
