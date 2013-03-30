@@ -3,17 +3,28 @@
 /**
  * SimpleDebug offers several debugging methods like events or time measurement and offers them bundled in different ways
  * @author: Lukas Kolletzki <lukas@kolletzki.info>
- * @version 2013-01-18
+ * @version 2013-03-30
  * @copyright (c) 2013, Lukas Kolletzki
  * @license http://www.gnu.org/licenses/ GNU General Public License, version 3 (GPL-3.0)
  */
 class simpleDebug {
+    private $listener = array();
 
     private $events = array();
     private $output;
+
     private $timeStart;
     private $timeSections = array();
     private $timeEnd;
+
+    /**
+     * adds a listener
+     * @param string $identifier name of event
+     * @param string $callback callback of listener
+     */
+    public function addListener($identifier, $callback) {
+        $this->listener[$identifier] = $callback;
+    }
 
     /**
      * adds an debug event
@@ -22,6 +33,10 @@ class simpleDebug {
      */
     public function addEvent($identifier, $text) {
         $this->events[$identifier] = $text;
+
+        if(isset($this->listener[$identifier])) {
+    		$this->listener[$identifier]($text);
+        }
     }
 
     /**
